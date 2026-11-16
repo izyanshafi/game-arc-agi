@@ -38,9 +38,9 @@ section,header{max-width:960px;margin:0 auto;padding:72px 18px 8px}
 header{padding-top:90px;text-align:center}
 h1{font-size:clamp(36px,7.5vw,72px);font-weight:500;max-width:15ch;margin:18px auto 0}
 .lead{max-width:56ch;margin:22px auto 0;color:#d6cfec;font-size:19px}
-.hero-in>*{opacity:0;transform:translateY(18px) scale(.98);filter:blur(8px);animation:enter .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-in>*{opacity:0;transform:translateY(18px) scale(.98);animation:enter .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero-in>*:nth-child(2){animation-delay:.12s}.hero-in>*:nth-child(3){animation-delay:.26s}.hero-in>*:nth-child(4){animation-delay:.42s}
-@keyframes enter{to{opacity:1;transform:none;filter:none}}
+@keyframes enter{to{opacity:1;transform:none}}
 h2{font-size:clamp(28px,4.6vw,44px);font-weight:600}
 .sub{color:#c8bfdf;font-size:17px;margin-top:12px;max-width:60ch}
 .tabs{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:30px}
@@ -52,7 +52,7 @@ h2{font-size:clamp(28px,4.6vw,44px);font-weight:600}
 .panel{margin-top:16px;padding:30px;display:grid;gap:26px;grid-template-columns:1.4fr 1fr}
 @media(max-width:760px){.panel{grid-template-columns:1fr;padding:22px}}
 .panel.sw{animation:swap .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes swap{from{opacity:0;transform:translateY(10px);filter:blur(6px)}}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}}
 .panel h3{font-size:24px;margin:12px 0}
 .panel p{color:#e8e2f6;font-size:17px;line-height:1.65}
 .ex{display:grid;gap:8px;align-content:start}
@@ -85,14 +85,14 @@ h2{font-size:clamp(28px,4.6vw,44px);font-weight:600}
 .hud{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
 .score{font:600 17px Montserrat;display:flex;gap:14px}
 .timer{height:6px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:20px}
-.timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#6d28d9,#c4b5fd);transform-origin:left;transition:width .1s linear}
+.timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#6d28d9,#c4b5fd);transform-origin:left;transition:transform .25s linear;will-change:transform}
 .timer.low i{background:#f87171}
 .rows{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:720px){.rows{grid-template-columns:1fr}}
 .box{padding:18px;border-radius:22px;background:rgba(0,0,0,.28);border:1px solid var(--line)}
 .box h4{font-size:16px;margin-bottom:12px;font-family:'SF Pro Text',-apple-system,Inter,sans-serif;font-weight:600;color:#d9ceff;letter-spacing:0}
 .pairs{display:flex;gap:18px;flex-wrap:wrap}
-.pr{display:flex;align-items:center;gap:8px;color:var(--mute)}
+.pr{display:flex;align-items:center;gap:8px;color:var(--mute);padding:8px;border-radius:18px;border:1px dashed rgba(167,139,250,.38);background:rgba(139,92,246,.06)}
 .g{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:7px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
 .g.s{--c:24px}.g.m{--c:48px}.g.l{--c:56px}
 .g u{display:block;width:var(--c);height:var(--c);border-radius:9px;background:rgba(255,255,255,.06);transition:background .25s,transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;text-decoration:none}
@@ -121,6 +121,56 @@ footer{max-width:960px;margin:70px auto 40px;padding:0 18px;color:var(--mute);fo
 #fx{position:fixed;inset:0;pointer-events:none;z-index:50}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.hero-in>*{opacity:1;transform:none;filter:none}}
 h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{letter-spacing:-.03em}
+.bg i{display:none}.bg{background:radial-gradient(60% 40% at 15% 20%,rgba(76,29,149,.14),transparent 70%),radial-gradient(50% 35% at 90% 60%,rgba(46,16,101,.12),transparent 70%),radial-gradient(70% 40% at 50% -10%,#0c0617,#000 70%)}.pairs{gap:10px 14px}
+@media(max-width:700px),(hover:none){.glass{backdrop-filter:none;-webkit-backdrop-filter:none}.glass::before{display:none}.lad .me{animation:none}}
+@media(max-width:600px){
+body{font-size:15px;line-height:1.5}
+section{padding:40px 14px 0}header{padding:44px 14px 0}
+nav{margin-top:8px;padding:6px 8px 6px 16px;width:calc(100% - 16px)}nav b{font-size:15px}.btn{padding:9px 16px;font-size:14px}
+h1{font-size:32px;margin-top:12px}.lead{font-size:15px;margin-top:14px}.sub{font-size:14px;margin-top:8px}h2{font-size:24px}
+header .btn{font-size:15px;padding:11px 22px}.pill{font-size:12px;padding:5px 11px}
+.tabs{gap:8px;margin-top:18px}.tab{padding:14px 16px}.tab h3{font-size:17px;margin:4px 0 2px}.tab p{font-size:13px}.tab span:first-child{font-size:22px!important}.tab.on{transform:none}
+.panel{padding:18px;gap:14px;margin-top:10px}.panel h3{font-size:19px;margin:8px 0}.panel p{font-size:15px;line-height:1.55}.ex div{padding:10px 12px;font-size:14px}
+.ex2{padding:18px;margin-top:16px}.ex2 h3{font-size:20px}.ex2 p,.st{font-size:14.5px}.why{font-size:14px;padding:12px 14px}
+.arc{gap:10px;margin-top:16px}.arc>.glass{padding:18px}.arc h3{font-size:19px!important}.bar{margin:12px 0}.bar .h{font-size:14px}.note{font-size:12.5px}.lad div{padding:10px 12px;font-size:14px}.lad span:last-child{font-size:12px}
+#arena{padding:14px;margin-top:16px;min-height:0}.about{font-size:13.5px;padding:14px;margin:14px 0}
+.hud{margin-bottom:6px}.score{font-size:14px;gap:10px}.timer{margin-bottom:12px}.rows{gap:10px}.box{padding:12px;border-radius:18px}.box h4{font-size:14px;margin-bottom:8px}.chip{padding:8px 12px;font-size:13px}.chips{gap:5px;margin-bottom:10px}.say{font-size:13px;height:40px;margin-top:8px}
+.res{padding:14px;margin-top:12px}.res .v b{font-size:15px}#rx{font-size:14px!important}.big{font-size:56px}
+footer{margin-top:40px;font-size:12px}}
+/* MOBILE: kotak tetap berdampingan, font & kisi mengecil */
+@media(max-width:760px){
+.tabs{grid-template-columns:repeat(3,1fr);gap:6px}
+.tab{padding:10px}.tab h3{font-size:14px;margin:2px 0}.tab p{font-size:11px;line-height:1.35}.tab span:first-child{font-size:18px!important}
+.panel{grid-template-columns:1.4fr 1fr;gap:12px;padding:14px}
+.panel h3{font-size:16px}.panel p{font-size:12.5px;line-height:1.5}.ex div{font-size:11.5px;padding:8px 10px}
+.arc{grid-template-columns:1.5fr 1fr;gap:8px}
+.arc>.glass{padding:12px}.arc h3{font-size:14px!important}
+.seg button{font-size:10.5px;padding:6px 8px}
+.bar .h{font-size:12px}.note{font-size:10.5px}
+.arc .sub{font-size:11px!important}
+.lad div{font-size:11px;padding:8px 9px;flex-direction:column;gap:2px}.lad span:last-child{font-size:9.5px;text-align:left}
+.rows{grid-template-columns:1fr;gap:10px}
+.box{padding:12px}#botbox{scroll-margin-top:70px}#arena{scroll-margin-top:70px}
+.box{padding:12px}.box h4{font-size:11.5px}
+.chip{font-size:11px;padding:7px 8px}
+.say{font-size:11.5px}
+.g{gap:3px;padding:4px}
+.pairs{gap:8px}
+.hud .pill{font-size:11px}.score{font-size:12px;gap:8px}
+}
+@media(max-width:760px){
+section{padding:60px 18px 0}header{padding:48px 18px 0}
+.sub{margin-top:12px;line-height:1.6}
+.tabs{gap:10px;margin-top:24px}
+.panel{padding:18px;gap:16px;margin-top:14px}.panel p{line-height:1.65}.panel h3{margin:12px 0 8px}.ex{gap:10px}
+.ex2{padding:20px;margin-top:24px}.ex2 p,.st{line-height:1.65}.st{gap:10px}.why{margin-top:18px;line-height:1.6}
+.arc{gap:14px;margin-top:24px}.arc>.glass{padding:16px}
+.lad{gap:10px}.lad div{padding:10px}.note{line-height:1.55;margin-top:16px}.bar{margin:18px 0}
+#arena{padding:16px;margin-top:24px}.about{line-height:1.6;padding:16px}.about ul{display:grid;gap:8px}
+.rows{gap:16px}.box{padding:14px}.box h4{margin-bottom:10px}.chips{gap:8px}
+.res{padding:16px;margin-top:16px}#rx{line-height:1.6}
+footer{margin-top:56px;line-height:1.6}
+}
 </style>
 </head>
 <body>
@@ -136,7 +186,7 @@ h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{let
 <header class="hero-in">
   <span class="pill">Adaptasi kajian literatur · Universitas Pendidikan Indonesia, 2026</span>
   <h1>Dari chatbot ke superintelegensi: seberapa dekat kita?</h1>
-  <p class="lead">Chatbot terasa pintar menjawab apa saja. Tapi pintar menjawab belum tentu cerdas secara umum. Baca buktinya, lalu adu logika dengan sebuah AI mini yang cara kerjanya bisa kamu lihat.</p>
+  <p class="lead">Chatbot terasa pintar, tapi belum tentu cerdas secara umum. Baca buktinya, lalu adu logika dengan AI mini.</p>
   <div style="margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
     <a class="btn gold" href="#arena-s">Mulai duel</a><a class="btn" href="#spektrum">Baca dulu</a>
   </div>
@@ -144,35 +194,35 @@ h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{let
 
 <section id="spektrum">
   <h2>Tiga tingkat kecerdasan buatan</h2>
-  <p class="sub">Pilih satu kartu. Kajian ini menempatkan penerapan AI yang diteliti di Indonesia pada tingkat pertama.</p>
+  <p class="sub">Pilih satu kartu. Penerapan AI yang dikaji ada di tingkat pertama.</p>
   <div class="tabs" id="tabs"></div>
   <div class="glass panel" id="panel"></div>
 </section>
 
 <section id="bukti">
   <h2>Bukti: ujian soal baru</h2>
-  <p class="sub">ARC-AGI menguji kemampuan memecahkan masalah yang benar-benar baru. Hampir semua soal publiknya bisa dipecahkan manusia, sedangkan model bahasa besar masih jauh tertinggal.</p>
+  <p class="sub">ARC-AGI menguji masalah yang benar-benar baru. Hampir semua soal publiknya bisa dipecahkan manusia, tapi model bahasa besar masih jauh tertinggal.</p>
   <div class="glass ex2">
     <h3>Apa itu ARC-AGI?</h3>
-    <p>Kumpulan teka-teki kotak berwarna yang dibuat supaya tidak bisa dijawab dengan menghafal. Cara mainnya selalu sama:</p>
-    <ol class="st"><li><b>Lihat contoh.</b> Ada beberapa pasang gambar "sebelum → sesudah".</li><li><b>Tebak aturannya.</b> Tidak ada petunjuk tertulis, kamu menyimpulkannya sendiri.</li><li><b>Terapkan ke soal baru.</b> Gambar jawaban untuk kotak yang belum pernah kamu lihat.</li></ol>
-    <p>Duel di bawah memakai cara yang sama dalam versi mini.</p>
-    <div class="why"><b>Kenapa ada angka 85%?</b> Itu skor yang ditetapkan panitia ARC Prize 2024 sebagai syarat hadiah utama: sebuah sistem harus menjawab benar 85 dari 100 soal rahasia. Angka ini adalah syarat hadiah, bukan rata-rata skor manusia. Sebagai pembanding, laporan ARC mencatat hampir semua soal publik berhasil dipecahkan minimal satu dari sepuluh orang yang mencoba. Hasilnya, skor tertinggi kompetisi 55,5% dan belum ada yang mencapai 85%.</div>
+    <p>Teka-teki kotak berwarna yang tak bisa dijawab dengan menghafal. Caranya:</p>
+    <ol class="st"><li><b>Lihat contoh</b> "sebelum → sesudah".</li><li><b>Tebak aturannya</b> sendiri.</li><li><b>Terapkan ke soal baru.</b></li></ol>
+    <p>Duel di bawah memakai cara yang sama.</p>
+    <div class="why"><b>Kenapa ada angka 85%?</b> Syarat hadiah utama ARC Prize 2024: menjawab benar 85 dari 100 soal rahasia. Ini bukan rata-rata skor manusia. Hampir semua soal publik dipecahkan minimal satu dari sepuluh orang yang mencoba. Skor tertinggi kompetisi 55,5%, belum ada yang mencapai 85%.</div>
   </div>
   <div class="arc">
     <div class="glass">
       <div class="seg" id="seg"><button class="on" data-m="pub">Soal publik (400)</button><button data-m="priv">Soal semi-privat (100)</button></div>
       <div id="bars"></div>
-      <p class="note">Garis putus-putus: 85%, ambang hadiah utama ARC Prize 2024. Skor pass@1 dengan perintah langsung, dikutip dari Chollet dkk. (2024). Skor tertinggi kompetisi naik dari 33% ke 55,5%, tetapi hadiah utama tidak ada yang meraih.</p>
+      <p class="note">Garis putus-putus: 85%, ambang hadiah utama ARC Prize 2024. Skor pass@1, dikutip dari Chollet dkk. (2024).</p>
     </div>
     <div class="glass">
       <h3 style="font-size:22px">Kerangka Morris dkk. (2024)</h3>
-      <p class="sub" style="font-size:14px">Tingkatan ini membandingkan AI dengan orang dewasa yang terampil di tugas yang sama. Model bahasa besar terkemuka ditempatkan pada tahap paling awal.</p>
+      <p class="sub" style="font-size:14px">AI dibandingkan dengan orang dewasa terampil. Model bahasa besar terkemuka ada di tahap paling awal.</p>
       <div class="lad">
         <div class="me"><span>1 · Pemula (Emerging)</span><span>posisi kini</span></div>
-        <div><span>2 · Cakap (Competent)</span><span>lebih baik dari separuh orang terampil</span></div>
-        <div><span>3 · Ahli (Expert)</span><span>lebih baik dari 9 dari 10 orang terampil</span></div>
-        <div><span>4 · Maestro (Virtuoso)</span><span>lebih baik dari 99 dari 100 orang terampil</span></div>
+        <div><span>2 · Cakap (Competent)</span><span>di atas 50% orang terampil</span></div>
+        <div><span>3 · Ahli (Expert)</span><span>di atas 90% orang terampil</span></div>
+        <div><span>4 · Maestro (Virtuoso)</span><span>di atas 99% orang terampil</span></div>
         <div><span>5 · Melampaui manusia</span><span>spekulatif</span></div>
       </div>
     </div>
@@ -181,17 +231,17 @@ h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{let
 
 <section id="arena-s">
   <h2>Duel: kamu lawan PatternBot</h2>
-  <p class="sub">Tebak aturan dari dua contoh, lalu terapkan ke soal baru. Rasakan sendiri bedanya hafalan dan penalaran.</p>
+  <p class="sub">Tebak aturan dari dua contoh, lalu terapkan ke soal baru.</p>
   <div class="glass" id="arena">
 
     <div class="scr on" id="s0">
       <div class="about">
-        <b>Ini simulasi kecil, bukan ChatGPT.</b> PatternBot adalah program sederhana (±40 baris kode) yang kami tulis untuk mewakili ide dari kajian: sistem yang kuat pada pola yang sudah dikenalnya.
+        <b>Ini simulasi kecil, bukan ChatGPT.</b> PatternBot kuat pada pola yang sudah ia hafal, untuk mewakili ide dari kajian.
         <ul>
-          <li><b>Hafalannya:</b> 4 aturan, yaitu cermin kiri–kanan, cermin atas–bawah, geser kanan, geser bawah.</li>
-          <li><b>Cara kerjanya:</b> menguji setiap aturan hafalan pada dua contoh, lalu memakai yang cocok 100%. Kalau tak ada yang cocok, ia memakai yang paling mirip.</li>
-          <li><b>Hasilnya nyata:</b> jawabannya dihitung langsung, bukan diskenariokan. Dari 10 soal, sebagian memakai aturan yang ia hafal dan sebagian memakai aturan baru.</li>
-          <li><b>Batasnya:</b> hanya 10 soal pada kisi 3×3 hingga 5×5, dengan contoh yang diacak. Ini ilustrasi gagasan, bukan pengukuran AGI, dan tidak mewakili kemampuan model sungguhan. Angka asli ada di bagian bukti.</li>
+          <li><b>Hafalannya:</b> cermin kiri–kanan, cermin atas–bawah, geser kanan, geser bawah.</li>
+          <li><b>Cara kerja:</b> menguji tiap aturan pada dua contoh, lalu memakai yang cocok 100% atau yang paling mirip.</li>
+          <li><b>Hasilnya nyata:</b> dihitung langsung, tidak diskenariokan.</li>
+          <li><b>Batasnya:</b> hanya 10 soal kisi 3×3 hingga 5×5. Ini ilustrasi, bukan pengukuran AGI.</li>
         </ul>
       </div>
       <div style="text-align:center"><button class="btn gold" id="go" style="font-size:17px;padding:15px 34px">Mulai 10 ronde</button></div>
@@ -208,7 +258,7 @@ h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{let
           <div class="mid"><div class="g s" id="qg"></div><span style="color:var(--mute)">→</span><div class="g l me" id="ag"></div></div>
           <div style="text-align:center;margin-top:18px"><button class="btn gold" id="lock">Kunci jawaban</button></div>
         </div>
-        <div class="box">
+        <div class="box" id="botbox">
           <h4>PatternBot menguji hafalannya</h4>
           <div class="chips" id="chips"></div>
           <div class="mid"><div class="g m bot" id="bg"></div></div>
@@ -229,13 +279,13 @@ h3,h4{font-weight:600}b,strong{font-weight:600}.lead,.sub{font-weight:300}h1{let
 </section>
 
 <footer>
-  <p>Sumber: Chollet dkk. (2024), ARC Prize 2024 Technical Report; Morris dkk. (2024), Levels of AGI; Alfonseca dkk. (2021); Serdianus & Saputra (2023); Hidayat & Wibowo (2023); Utama & Putra (2024). Data tolok ukur adalah potret hingga akhir 2024 dan perlu diperbarui. Kesimpulan kajian: AGI belum tercapai, ASI masih spekulatif.</p>
+  <p>Sumber: Chollet dkk. (2024); Morris dkk. (2024); Alfonseca dkk. (2021); Serdianus & Saputra (2023); Hidayat & Wibowo (2023); Utama & Putra (2024). Data tolok ukur akhir 2024, perlu diperbarui. Kesimpulan kajian: AGI belum tercapai, ASI masih spekulatif.</p>
 </footer>
 
 <script>
 const $=s=>document.querySelector(s),sleep=ms=>new Promise(r=>setTimeout(r,ms));
 // glass light follows pointer
-document.addEventListener('pointermove',e=>{const g=e.target.closest&&e.target.closest('.glass');if(g){const r=g.getBoundingClientRect();g.style.setProperty('--mx',e.clientX-r.left+'px');g.style.setProperty('--my',e.clientY-r.top+'px')}});
+if(matchMedia('(hover:hover)').matches){let q=0;document.addEventListener('pointermove',e=>{if(q)return;q=1;const t=e.target,x=e.clientX,y=e.clientY;requestAnimationFrame(()=>{q=0;const g=t.closest&&t.closest('.glass');if(g){const r=g.getBoundingClientRect();g.style.setProperty('--mx',x-r.left+'px');g.style.setProperty('--my',y-r.top+'px')}})},{passive:true})}
 // sound
 let snd=true,ac;
 function beep(f,d=.12,t=0,type='sine'){if(!snd)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.12,s+.01);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(g).connect(ac.destination);o.start(s);o.stop(s+d+.02)}catch(e){}}
@@ -244,14 +294,14 @@ $('#snd').onclick=e=>{snd=!snd;e.target.textContent=snd?'🔊':'🔇'};
 // particles
 const cv=$('#fx'),cx=cv.getContext('2d');let ps=[],raf;
 function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
-function burst(x,y,n=40,col='245,196,81'){for(let i=0;i<n;i++){const a=Math.random()*6.28,s=2+Math.random()*6;ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3,l:1,r:2+Math.random()*3,c:col})}if(!raf)loop()}
+function burst(x,y,n=40,col='245,196,81'){n=Math.round(n*(innerWidth<600?.5:1));for(let i=0;i<n;i++){const a=Math.random()*6.28,s=2+Math.random()*6;ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3,l:1,r:2+Math.random()*3,c:col})}if(!raf)loop()}
 function loop(){cx.clearRect(0,0,cv.width,cv.height);ps=ps.filter(p=>p.l>0);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.18;p.vx*=.985;p.l-=.016;cx.fillStyle=`rgba(${p.c},${Math.max(p.l,0)})`;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.28);cx.fill()});raf=ps.length?requestAnimationFrame(loop):0}
 const ctr=el=>{const r=el.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]};
 // tabs
 const SP=[
- {i:'📱',t:'AI sempit',d:'Unggul pada satu tugas atau bidang.',b:'Posisi penerapan yang dikaji',h:'Chatbot dan asisten harian masih AI sempit',p:'Studi di jurnal nasional memakai AI sebagai alat bantu tugas tertentu: ChatGPT untuk perencanaan pembelajaran, rekomendasi kedai kopi, deteksi meme ujaran kebencian. Chatbot bisa membahas banyak topik, tetapi pemakaiannya tetap terarah dan diawasi manusia.',e:['👩‍🏫 ChatGPT untuk perencanaan guru','☕ Rekomendasi kedai kopi (hybrid filtering)','🛡️ Deteksi meme kebencian (explainable AI)']},
- {i:'🧠',t:'AGI',d:'Menangani beragam tugas setara manusia.',b:'Sedang diperdebatkan',h:'Percikan keumuman, belum keumuman yang andal',p:'GPT-4 awal menunjukkan "percikan" kecerdasan umum lintas bidang (Bubeck dkk., 2023), tetapi ujian soal baru seperti ARC-AGI memperlihatkan jarak yang masih lebar. Kesimpulan kajian: AGI belum tercapai.',e:['✨ Luwes lintas topik','🧩 Masih tertinggal di soal yang benar-benar baru','📊 Tahap Emerging (level 1 dari 5)']},
- {i:'👑',t:'ASI',d:'Melampaui kemampuan manusia secara luas.',b:'Spekulatif',h:'Superintelegensi: pertanyaannya bukan kapan, tetapi bisakah dikendalikan',p:'Literatur ASI bersifat teoretis. Alfonseca dkk. (2021) menyimpulkan pengendalian total bermasalah secara prinsip, sehingga keselamatan tidak boleh bertumpu pada satu mekanisme. Persiapan tata kelola tidak perlu menunggu tanggal kemunculan.',e:['🔒 Keterkendalian: masalah terbuka','⚖️ Verifikasi keselamatan dan tata kelola','🗓️ Tidak ada tanggal yang bisa diberikan']}];
+ {i:'📱',t:'AI sempit',d:'Unggul di satu tugas.',b:'Posisi penerapan yang dikaji',h:'Chatbot dan asisten harian masih AI sempit',p:'Studi nasional memakai AI untuk tugas tertentu, dan tetap diawasi manusia. Chatbot bisa membahas banyak topik, tapi pemakaiannya terarah.',e:['👩‍🏫 ChatGPT untuk perencanaan guru','☕ Rekomendasi kedai kopi','🛡️ Deteksi meme kebencian']},
+ {i:'🧠',t:'AGI',d:'Setara manusia di banyak tugas.',b:'Sedang diperdebatkan',h:'Percikan keumuman, belum keumuman yang andal',p:'GPT-4 awal menunjukkan "percikan" kecerdasan umum (Bubeck dkk., 2023), tapi soal baru seperti ARC-AGI masih sulit. Kesimpulan kajian: AGI belum tercapai.',e:['✨ Luwes lintas topik','🧩 Tertinggal di soal baru','📊 Tahap Emerging (level 1 dari 5)']},
+ {i:'👑',t:'ASI',d:'Melampaui manusia secara luas.',b:'Spekulatif',h:'Superintelegensi: bisakah dikendalikan?',p:'Kajian ASI bersifat teoretis. Alfonseca dkk. (2021) menilai pengendalian total bermasalah secara prinsip, jadi keselamatan tak boleh bertumpu pada satu mekanisme.',e:['🔒 Keterkendalian: masalah terbuka','⚖️ Tata kelola keselamatan','🗓️ Tanpa tanggal pasti']}];
 function tabs(k){$('#tabs').innerHTML=SP.map((s,i)=>`<button class="glass tab ${i==k?'on':''}" data-i="${i}"><span style="font-size:28px">${s.i}</span><h3>${s.t}</h3><p>${s.d}</p></button>`).join('');
  const s=SP[k],p=$('#panel');p.classList.remove('sw');void p.offsetWidth;p.classList.add('sw');
  p.innerHTML=`<div><span class="pill">${s.b}</span><h3>${s.h}</h3><p>${s.p}</p></div><div class="ex">${s.e.map(x=>`<div>${x}</div>`).join('')}</div>`}
@@ -288,20 +338,21 @@ let st,sel,tint,left,busy;
 function grid(el,a,n,c){el.style.gridTemplateColumns=`repeat(${n},${c}px)`;el.style.setProperty('--c',c+'px');el.innerHTML=a.map((v,i)=>`<u class="${v?'on':''}" data-i="${i}"></u>`).join('')}
 function show(id){document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id==id))}
 function hud(){$('#su').textContent=st.u;$('#sb').textContent=st.b;$('#pt').textContent=st.pts+' poin'}
-function round(){busy=false;const p=PZ[st.i],n=p.n,d=st.cur=mk(p,st.i*13+st.sd),s=n==3?26:n==4?22:18,l=n==3?56:n==4?46:40;st.n=n;sel=Array(n*n).fill(0);
+function round(){busy=false;const p=PZ[st.i],n=p.n,d=st.cur=mk(p,st.i*13+st.sd),m=innerWidth<760,s=m?(n==3?22:n==4?19:15):(n==3?26:n==4?22:18),l=m?(n==3?46:n==4?38:32):(n==3?56:n==4?46:40);st.n=n;sel=Array(n*n).fill(0);
  $('#rn').textContent=`Ronde ${st.i+1}/${PZ.length} · kisi ${n}×${n}`;
  $('#exs').innerHTML=d.ex.map((e,i)=>`<div class="pr"><div class="g" id="a${i}"></div>→<div class="g" id="b${i}"></div></div>`).join('');
  d.ex.forEach((e,i)=>{grid($('#a'+i),e,n,s);grid($('#b'+i),RULES[p.r](e,n),n,s)});
  grid($('#qg'),d.t,n,s);grid($('#ag'),sel,n,l);grid($('#bg'),Array(n*n).fill(0),n,l);
  $('#chips').innerHTML=MEM.map(([k,m])=>`<div class="chip" id="c${k}"><span>${m}</span><span>—</span></div>`).join('');
  $('#say').textContent='Menunggu kamu mengunci jawaban…';$('#res').classList.remove('on');$('#lock').style.display='';
- left=p.time;const T=$('#tm');T.classList.remove('low');T.firstChild.style.width='100%';clearInterval(tint);tint=setInterval(()=>{left-=.1;T.firstChild.style.width=Math.max(left/p.time*100,0)+'%';T.classList.toggle('low',left<6);if(left<=0)lock()},100);
- show('s1')}
+ left=p.time;const T=$('#tm');T.classList.remove('low');T.firstChild.style.transform='scaleX(1)';clearInterval(tint);tint=setInterval(()=>{left-=.25;T.firstChild.style.transform=`scaleX(${Math.max(left/p.time,0)})`;T.classList.toggle('low',left<6);if(left<=0)lock()},250);
+ show('s1');if(st.i>0)$('#arena').scrollIntoView({behavior:'smooth',block:'start'})}
 $('#ag').onclick=e=>{const u=e.target.closest('u');if(!u||busy)return;const i=+u.dataset.i;sel[i]^=1;u.classList.toggle('on');sel[i]?beep(660,.08):beep(440,.06)};
 async function lock(){if(busy)return;busy=true;clearInterval(tint);const p=PZ[st.i],n=st.n,d=st.cur,f=RULES[p.r],sol=f(d.t,n),ok=same(sel,sol),outs=d.ex.map(e=>f(e,n));
  $('#lock').style.display='none';
  let earn=20;if(ok){st.u++;earn=100+Math.round(left*3)+st.cb*20;st.cb++;st.pts+=earn;sfx.ok();const[x,y]=ctr($('#ag'));burst(x,y,60)}else{st.cb=0;st.pts+=20;sfx.bad();const m=$('#me');m.classList.add('shake');setTimeout(()=>m.classList.remove('shake'),500)}
  hud();
+ if(innerWidth<=720)$('#botbox').scrollIntoView({behavior:'smooth',block:'start'});
  const sc=scoreMem(d.ex,outs,n);$('#say').textContent='“Mencocokkan contoh dengan hafalan…”';
  for(const [k,m] of sc){const c=$('#c'+k);c.classList.add('t');sfx.scan();await sleep(500);c.classList.remove('t');c.classList.add(m==1?'ok':'no');c.lastChild.textContent=Math.round(m*100)+'% cocok';if(m==1)beep(784,.1)}
  const full=sc.find(x=>x[1]==1),pick=pickOf(sc),bn=NM[pick[0]].split(' (')[0];
@@ -313,14 +364,14 @@ async function lock(){if(busy)return;busy=true;clearInterval(tint);const p=PZ[st
  st.log.push([p.k,bok]);
  $('#rv1').className=ok?'win':'';$('#rv2').className=bok?'win':'';
  $('#rv1').innerHTML=`Kamu<b>${ok?'Benar +'+earn:'Meleset +20'}</b>`;$('#rv2').innerHTML=`PatternBot<b>${bok?'Benar':'Salah'}</b>`;
- $('#rx').innerHTML=`Aturannya: <b>${NM[p.r]}</b>. `+(p.k?'Aturan ini ada di hafalan bot, jadi ia menjawab benar. Itu menunjukkan kekuatan AI pada pola yang sudah dikenal.':'Aturan ini <b>tidak ada</b> di hafalan bot, jadi ia memakai aturan termirip dan salah. Inilah gejala yang diukur ARC-AGI: tertinggal pada soal yang benar-benar baru.');
- $('#nx').textContent=st.i<PZ.length-1?'Ronde berikutnya':'Lihat hasil';$('#res').classList.add('on')}
+ $('#rx').innerHTML=`Aturannya: <b>${NM[p.r]}</b>. `+(p.k?'Aturan ini ada di hafalan bot, jadi ia benar.':'Aturan ini <b>tidak ada</b> di hafalan bot, jadi ia salah. Inilah yang diukur ARC-AGI: lemah di soal yang benar-benar baru.');
+ $('#nx').textContent=st.i<PZ.length-1?'Ronde berikutnya':'Lihat hasil';$('#res').classList.add('on');setTimeout(()=>$('#res').scrollIntoView({behavior:'smooth',block:'end'}),120)}
 $('#lock').onclick=lock;
 $('#nx').onclick=()=>{sfx.tick();if(st.i<PZ.length-1){st.i++;round()}else end()};
-function end(){show('s2');const K=st.log.filter(l=>l[0]),N=st.log.filter(l=>!l[0]),kb=K.filter(l=>l[1]).length,nb=N.filter(l=>l[1]).length;
+function end(){show('s2');setTimeout(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'}),500);const K=st.log.filter(l=>l[0]),N=st.log.filter(l=>!l[0]),kb=K.filter(l=>l[1]).length,nb=N.filter(l=>l[1]).length;
  const rk=st.u>=9?'Penalar sejati':st.u>=7?'Penalar tajam':st.u>=5?'Pengamat pola':'Pemula yang penasaran';
  $('#fr').textContent=`${rk} · kamu ${st.u}, bot ${st.b}`;
- $('#ft').textContent=`PatternBot benar ${kb} dari ${K.length} soal beraturan hafalan dan ${nb} dari ${N.length} soal beraturan baru. Ini simulasi kecil untuk menggambarkan temuan kajian: sistem yang kuat pada pola yang dikenal belum tentu andal pada masalah baru. Ia bukan ukuran kemampuan AI sebenarnya.`;
+ $('#ft').textContent=`PatternBot benar ${kb} dari ${K.length} soal beraturan hafalan dan ${nb} dari ${N.length} soal beraturan baru. Sistem yang kuat pada pola dikenal belum tentu andal pada masalah baru. Ini simulasi, bukan ukuran kemampuan AI sebenarnya.`;
  const t0=performance.now(),to=st.pts;(function q(t){const w=Math.min((t-t0)/1400,1);$('#fs').textContent=Math.round(to*(1-Math.pow(1-w,3)));if(w<1)requestAnimationFrame(q)})(t0);
  sfx.ok();const[x,y]=ctr($('#fs'));burst(x,y,90);setTimeout(()=>burst(x-120,y+20,40,'167,139,250'),250)}
 $('#go').onclick=()=>{st={i:0,u:0,b:0,pts:0,cb:0,log:[],sd:Math.floor(Math.random()*900)};hud();sfx.ok();round()};
